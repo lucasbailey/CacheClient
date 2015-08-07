@@ -1,0 +1,56 @@
+﻿<Window x:Class="MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="MainWindow" Height="350" Width="525">
+
+    <Window.Resources>
+        <DataTemplate x:Key="ComboBoxItemTemplate">
+            <TextBlock Background="Transparent" Text="{Binding Path=Value, Mode=OneTime}" />
+        </DataTemplate>
+        <Style TargetType="ComboBox" x:Key="ComboBoxStyle">
+            <Setter Property="Margin" Value="20pt" />
+            <!--<Setter Property="FontSize" Value="25pt" />-->
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid>
+            <StackPanel Orientation="Vertical">
+                <Label Content="The Client" HorizontalAlignment="Center" VerticalAlignment="Top" />
+
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="The Command:" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                        <ComboBox Name="CommandDrop" Style="{StaticResource ComboBoxStyle}" 
+                              ItemTemplate="{StaticResource ComboBoxItemTemplate}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="The Command Type:" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                        <ComboBox Name="CommandTypeDrop" Style="{StaticResource ComboBoxStyle}" 
+                              ItemTemplate="{StaticResource ComboBoxItemTemplate}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="The Ports:" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                        <ComboBox Name="PortDrop" Style="{StaticResource ComboBoxStyle}" 
+                              ItemTemplate="{StaticResource ComboBoxItemTemplate}" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="The Payload to send:" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                        <ComboBox Name="PayloadDrop" Style="{StaticResource ComboBoxStyle}" 
+                              ItemTemplate="{StaticResource ComboBoxItemTemplate}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Connection String (SQL) / Minify Path (JSON &amp; XML ):" HorizontalAlignment="Center" VerticalAlignment="Top" />
+                        <ComboBox Name="ConnectionStringDrop" Style="{StaticResource ComboBoxStyle}" 
+                              ItemTemplate="{StaticResource ComboBoxItemTemplate}" />
+                    </StackPanel>
+                </StackPanel>
+                <Label Name="PreviewLabel" Content=""/>
+                <TextBox Name="ServerResults" ScrollViewer.CanContentScroll="True" Height="40px" />
+                <Button Content="Send To Server" Click="Button_iNSERT_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
